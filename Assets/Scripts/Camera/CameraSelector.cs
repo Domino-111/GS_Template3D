@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class CameraSelector : MonoBehaviour
@@ -19,7 +20,9 @@ public class CameraSelector : MonoBehaviour
     //Hold our third person camera script
     private ThirdPersonCamera thirdPersonCamera;
 
-    // Start is called before the first frame update
+    //Hold which camera is currently in use
+    private Camera currenCamera;
+
     void Start()
     {
         //Lock the mouse cursor to the centre of the screen and make it invisible
@@ -49,10 +52,12 @@ public class CameraSelector : MonoBehaviour
         {
             case Selection.FirstPerson:
                 firstPersonCamera.ToggleActive(true);
+                currenCamera = firstPersonCamera.GetComponentInChildren<Camera>();
                 thirdPersonCamera.ToggleActive(false);
                 break;
             case Selection.ThirdPerson:
                 thirdPersonCamera.ToggleActive(true);
+                currenCamera = thirdPersonCamera.GetComponentInChildren<Camera>();
                 firstPersonCamera.ToggleActive(false);
                 break;
         }
@@ -83,5 +88,14 @@ public class CameraSelector : MonoBehaviour
             default:
                 return null;
         }
+    }
+
+    /// <summary>
+    /// Returns the camera which is currently in use
+    /// </summary>
+    /// <returns></returns>
+    public Camera GetCamera()
+    {
+        return currenCamera;
     }
 }
