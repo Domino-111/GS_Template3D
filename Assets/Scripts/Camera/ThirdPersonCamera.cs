@@ -97,6 +97,8 @@ public class ThirdPersonCamera : MonoBehaviour
     /// </summary>
     private void ApplyRotation()
     {
+        playerTransform.localEulerAngles = new Vector3(0, currentHorizontalRotation, 0);
+
         transform.localEulerAngles = new Vector3(0, currentHorizontalRotation, 0);
         boomTransform.localEulerAngles = new Vector3(currentVerticalRotation, 0, 0);
     }

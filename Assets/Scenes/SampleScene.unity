@@ -401,7 +401,8 @@ GameObject:
   - component: {fileID: 287729032}
   - component: {fileID: 287729031}
   - component: {fileID: 287729037}
-  m_Layer: 0
+  - component: {fileID: 287729038}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -468,7 +469,7 @@ Rigidbody:
   m_GameObject: {fileID: 287729029}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -587,6 +588,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &287729038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287729029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945a352b28cfef147bdbcccd908a6a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  timerMax: 5
+  detectionDistance: 5
+  dashDistance: 30
+  playerPosition: {fileID: 287729030}
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &383034920
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +620,7 @@ GameObject:
   - component: {fileID: 383034924}
   - component: {fileID: 383034923}
   - component: {fileID: 383034922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +713,7 @@ GameObject:
   - component: {fileID: 463207642}
   - component: {fileID: 463207644}
   - component: {fileID: 463207643}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}

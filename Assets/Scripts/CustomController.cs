@@ -118,9 +118,13 @@ public class CustomController : MonoBehaviour
         //but since we're walking, we shouldn't fall
         inputMovement.y = Mathf.Clamp(rb.velocity.y - gravity * Time.deltaTime, 0f, float.PositiveInfinity);
 
+        if (!GetComponent<DashMechanic>().IsDashing())
+        {
+            //Apply the movement we determined to our rigidbody
+            rb.velocity = inputMovement;
+        }
+        
 
-        //Apply the movement we determined to our rigidbody
-        rb.velocity = inputMovement;
 
         //If we are no longer on the ground...
         if (!IsGrounded())
@@ -243,7 +247,7 @@ public class CustomController : MonoBehaviour
         //Change to the Rise state
         currentState = State.Rise;
     }
-    
+
     /// <summary>
     /// Get current inputs and translate to a movement direction
     /// </summary>
